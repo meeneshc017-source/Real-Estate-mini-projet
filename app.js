@@ -1,8 +1,8 @@
 import propertyForSaleArr from '/properties/propertyForSaleArr.js'
-import placeholderPropertyObj from './properties/placeholderPropertyObj'
+import placeholderPropertyObj from '/properties/placeholderPropertyObj.js'
 
 
-function getPropertyHtml(propertyArr){
+function getPropertyHtml(propertyArr=[placeholderPropertyObj]){
   return propertyArr.map(property =>{
     const {propertyLocation ,priceGBP ,roomsM2 ,comment ,image}= property
     const totalRoomSizeM2=roomsM2.reduce((total ,current)=> total+current)
@@ -13,10 +13,10 @@ function getPropertyHtml(propertyArr){
                 <h2>${propertyLocation}</h2>
                 <h3>${priceGBP}</h3>
                 <p>${comment}</p>
-                <h3>TOTAL SIZE IN SQUARE METRES m&sup2;</h3>
+                <h3>${totalRoomSizeM2} m&sup2;</h3>
             </div>
         </section> `
    }).join(" ")
 
 }
-document.getElementById('container').innerHTML = getPropertyHtml(propertyForSaleArr)
+document.getElementById('container').innerHTML = getPropertyHtml()
