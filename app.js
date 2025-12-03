@@ -3,6 +3,7 @@ import propertyForSaleArr from '/properties/propertyForSaleArr.js'
 function getPropertyHtml(propertyArr){
   return propertyArr.map(property =>{
     const {propertyLocation ,priceGBP ,roomsM2 ,comment ,image}= property
+    const totalRoomSizeM2=roomsM2.reduce((total ,current)=> total+current)
     return `
         <section class="card">
             <img src="/images/${image}">
