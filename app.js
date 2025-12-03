@@ -19,4 +19,4 @@ function getPropertyHtml(propertyArr=[placeholderPropertyObj]){
    }).join(" ")
 
 }
-document.getElementById('container').innerHTML = getPropertyHtml()
+document.getElementById('container').innerHTML = getPropertyHtml(propertyForSaleArr)
